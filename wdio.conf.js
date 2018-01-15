@@ -43,7 +43,10 @@ exports.config = {
         // grid with only 5 firefox instances available you can make sure that not more than
         // 5 instances get started at a time.
         maxInstances: 1,
-        browserName: 'chrome'
+        browserName: 'chrome',
+        chromeOptions: {
+            args: ['--headless', '--no-sandbox', '--disable-gpu', '--window-size=1280,800'],
+        },
     }],
     port: '9515',
     path: '/',
