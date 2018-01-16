@@ -11,6 +11,7 @@ Feature: Login
     Then I expect the url to contain "myautoalert/jobs.jsp"
 
   Scenario: Job Details
-    Given I click on the link "76608"
-    Then I expect that element "input#CustomerReference" contains the text "TEST-JOB"
+    Given I scroll to element "*=76608"
+    Then I click on the link "76608"
+    And I expect that element "input#CustomerReference" contains the text "TEST-JOB"
     And I expect that element "textarea[name='JobDescription']" contains the text "Test Job"
