@@ -50,7 +50,11 @@ Feature: Jobs
     And I should see the value "PO200" in element "div.row-fluid #CustomerReference"
     And I should see the value "Update job details" in element "div.row-fluid textarea[name='JobDescription']"
     And I should see the value "On site" in element "div.row-fluid select#JobStatus"
-    # TODO add more check steps to that scenario
+    When I click on the element "a*=< "
+    Then I should see "PO200" in element "td.col-reference" on the table row contains "span*=($ID)"
+    And I should see "Update job details" in element "td.col-jobDescription" on the table row contains "span*=($ID)"
+    And I should see the element "i.green-tick" in element "td:nth-child(8)" on the table row contains "span*=($ID)"
+    And I should see the element "i.green-tick" in element "td:nth-child(9)" on the table row contains "span*=($ID)"
 
   Scenario: Update Job from the job dashboard
     When  I click on the link "NEW JOB"
