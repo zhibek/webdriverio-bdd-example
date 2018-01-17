@@ -1,9 +1,12 @@
 /**
- * Perform an click action on the given element inside certain table row with string template that has a variable.
+ * Check if the text in element is equal to certain value, 
+ *    this Element is inside certain table row with string template that has a variable.
+ * @param  {String}   value value to check against.
  * @param  {String}   element Element selector with template variable.
  * @param  {String}   row     selector for an element appear in the desired row
  */
-module.exports = function(element, row) {
+
+module.exports = function(value, element, row) {
     const regex = /^(.*)(\(\$\w+\))(.*)$/g;
     let m = regex.exec(row);
 
@@ -11,11 +14,10 @@ module.exports = function(element, row) {
         let key = m[2]
         if (this[key] != null) {
             let rowSelector = element.replace(m[2], this[key])
-            browser.waitForVisible(rowSelector)
             let rowElement = $(rowSelector).$('//ancestor::tr[1]')
-            let elem = rowElement.$(element)
-            elem.waitForVisible()
-            elem.click()
+            browser.waitUntil(function(){
+                return rowElement.$(element).getText() == value
+            }, 10000, 'Expected the element (' + element + ') to be ' + value + ', but its ' + rowElement.$(element).getText());
         }
         else{
             throw Error ('Template variable is not intialized')

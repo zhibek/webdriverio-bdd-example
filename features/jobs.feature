@@ -62,4 +62,7 @@ Feature: Jobs
     When I click on the element "td.col-reference" on the table row contains "span*=($ID)"
     And I click on the element "i[data-original-title*='Click to edit']" on the table row contains "span*=($ID)"
     Then I expect that element with string template "h3*=Job reference for job ($ID)" is visible
+    When I set "PO200" to the inputfield "div#myModalShowDescription #referenceText"
+    And I click on the button "div#myModalShowDescription input#UpdateData"
+    Then I should see "PO200" in element "td.col-reference" on the table row contains "span*=($ID)"
     # TODO add more checks and steps to this scenario
