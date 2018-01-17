@@ -7,8 +7,9 @@ Feature: Jobs
     And I wait on element "input#ok-login-email-desktop" to be visible
     And I expect that element "input#ok-login-email-desktop" is visible
     # TODO Modify the username and password with the one in the original scenario
-    And I set "john.levermore@zhibek.com" to the inputfield "#ok-login-email-desktop"
-    And I set "web0driver0io" to the inputfield "#ok-login-pwd-desktop"
+    And I fill in the following:
+        |#ok-login-email-desktop|john.levermore@zhibek.com|
+        |#ok-login-pwd-desktop|web0driver0io|
     And I click on the button "#ok-login-btn-desktop"
     Then I expect the url to contain "myautoalert/jobs.jsp"
 
@@ -21,4 +22,5 @@ Feature: Jobs
     And I set "PO123" to the inputfield "div#collapseJobDetails #CustomerReference"
     And I set "Add job" to the inputfield "div#collapseJobDetails textarea[name='JobDescription']"
     And I click on the button "button*=Add job"
-    Then I wait on element "strong*=Your job is being added with ID" to be visible
+    Then I should see the following string template "strong*=Your job is being added with ID ($ID) ... (view job)"
+    And I expect that element with string template "span*=($ID)" is visible

@@ -145,6 +145,7 @@ exports.config = {
             './steps/when.js',
             './steps/then.js',
             './steps/custom.js',
+            './steps/variables.js',
         ],
         backtrace: false,   // <boolean> show full backtrace for errors
         // <string[]> filetype:compiler used for processing required features

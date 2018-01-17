@@ -5,8 +5,9 @@ Feature: Login
     When I click on the button "a.ok-menu-signin-btn"
     And I wait on element "input#ok-login-email-desktop" to be visible
     And I expect that element "input#ok-login-email-desktop" is visible
-    And I set "john.levermore@zhibek.com" to the inputfield "#ok-login-email-desktop"
-    And I set "web0driver0io" to the inputfield "#ok-login-pwd-desktop"
+    And I fill in the following:
+        |#ok-login-email-desktop|john.levermore@zhibek.com|
+        |#ok-login-pwd-desktop|web0driver0io|
     And I click on the button "#ok-login-btn-desktop"
     Then I expect the url to contain "myautoalert/jobs.jsp"
 

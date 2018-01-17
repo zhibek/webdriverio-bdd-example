@@ -6,7 +6,7 @@ import checkIfElementExists from '../lib/checkIfElementExists';
  * @param  {String}   table  The data table to process
  */
 module.exports = (table) => {
-    table.rows().forEach(row => {
+    table.raw().forEach(row => {
       const element = row[0];
       const value = row[1];
 
