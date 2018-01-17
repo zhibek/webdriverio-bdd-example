@@ -15,7 +15,6 @@ module.exports = function(expectedTemplate) {
         let text = browser.getText(m[1])
         this[m[4]] = text.replace(m[3],'')
         this[m[4]] = this[m[4]].replace(m[5],'')
-        console.log(this[m[4]])
         templateFound = true
     }
     else{
