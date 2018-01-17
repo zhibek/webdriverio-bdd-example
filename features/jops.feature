@@ -48,3 +48,18 @@ Feature: Jobs
     And I should see the value "Update job details" in element "div.row-fluid textarea[name='JobDescription']"
     And I should see the value "On site" in element "div.row-fluid select#JobStatus"
     # TODO add more check steps to that scenario
+
+  Scenario: Update Job from the job dashboard
+    When  I click on the link "NEW JOB"
+    And I expect that element "h3*=New job" is visible
+    And I select the option with the text "Standard" for element "select#DefaultJobType"
+    # TODO Modify the customer with the value in the original scenario
+    And I select the option with the text "Miscellaneous customers" for element "select#CreatedBy"
+    And I set "PO135" to the inputfield "div#collapseJobDetails #CustomerReference"
+    And I set "Add job" to the inputfield "div#collapseJobDetails textarea[name='JobDescription']"
+    And I click on the button "button*=Add job"
+    Then I should see the following string template "strong*=Your job is being added with ID ($ID) ... (view job)"
+    When I click on the element "td.col-reference" on the table row contains "span*=($ID)"
+    And I click on the element "i[data-original-title*='Click to edit']" on the table row contains "span*=($ID)"
+    Then I expect that element with string template "h3*=Job reference for job ($ID)" is visible
+    # TODO add more checks and steps to this scenario

@@ -14,8 +14,10 @@ module.exports = function(action, type, element) {
     if (m !== null && m[2] != null) {
         let key = m[2]
         if (this[key] != null) {
-            let text = element.replace(m[2], this[key])
-            clickElement(action, type, text)
+            let elementSelector = element.replace(m[2], this[key])
+            let visibleCheckSeletor = (type === 'link') ? `=${elementSelector}` : elementSelector;
+            browser.waitForVisible(visibleCheckSeletor)
+            clickElement(action, type, elementSelector)
         }
         else{
             throw Error ('Template variable is not intialized')
