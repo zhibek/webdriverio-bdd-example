@@ -24,7 +24,10 @@ Feature: Jobs
     And I click on the button "button*=Add job"
     Then I should see the following string template "strong*=Your job is being added with ID ($ID) ... (view job)"
     And I expect that element with string template "span*=($ID)" is visible
-    # TODO add more check steps to that scenario
+    And I should see "Miscellaneous customers" in element "td:nth-child(2)" on the table row contains "span*=($ID)"
+    And I should see "PO123" in element "td.col-reference" on the table row contains "span*=($ID)"
+    And I should see "Not assigned" in element "td.col-allocated" on the table row contains "span*=($ID)"
+    And I should see "Add job" in element "td.col-jobDescription" on the table row contains "span*=($ID)"
 
   Scenario: Update job from within the job
     When  I click on the link "NEW JOB"
