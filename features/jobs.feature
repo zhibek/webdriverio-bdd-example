@@ -65,4 +65,16 @@ Feature: Jobs
     When I set "PO200" to the inputfield "div#myModalShowDescription #referenceText"
     And I click on the button "div#myModalShowDescription input#UpdateData"
     Then I should see "PO200" in element "td.col-reference" on the table row contains "span*=($ID)"
-    # TODO add more checks and steps to this scenario
+    When I click on the element "td.col-jobDescription" on the table row contains "span*=($ID)"
+    And I click on the element "td.col-jobDescription i" on the table row contains "span*=($ID)"
+    Then I expect that element with string template "h3*=Job description for job ($ID)" is visible
+    When I set "Update job details" to the inputfield "div#myModalShowDescription textarea#myModalDescriptionText"
+    And I click on the button "div#myModalShowDescription input#UpdateData"
+    Then I should see "Update job details" in element "td.col-jobDescription" on the table row contains "span*=($ID)"
+    When I click on the link with string template "($ID)"
+    Then I expect that element with string template "legend*=Job details id: ($ID)" is visible
+    And I should see the value "PO200" in element "div.row-fluid #CustomerReference"
+    And I should see the value "Update job details" in element "div.row-fluid textarea[name='JobDescription']"
+    When I click on the element "a*=< "
+    Then I should see "PO200" in element "td.col-reference" on the table row contains "span*=($ID)"
+    And I should see "Update job details" in element "td.col-jobDescription" on the table row contains "span*=($ID)"
