@@ -3,25 +3,23 @@ Feature: Jobs
   # Login (used in all following scenarios)
   Background: 
     Given I am on "/"
-    When I click on the button "a.ok-menu-signin-btn"
-    And I wait on element "input#ok-login-email-desktop" to be visible
-    And I expect that element "input#ok-login-email-desktop" is visible
-    # TODO Modify the username and password with the one in the original scenario
+    When I press "*=LOG IN"
+    And I should see "input#ok-login-email-desktop"
     And I fill in the following:
         |#ok-login-email-desktop|john.levermore@zhibek.com|
         |#ok-login-pwd-desktop|web0driver0io|
-    And I click on the button "#ok-login-btn-desktop"
-    Then I expect the url to contain "myautoalert/jobs.jsp"
+    And I press "button[title*='Login to Okappy']"
+    Then The url should match "myautoalert/jobs.jsp?currentPage=jobs&token=<TOKEN>"
 
   Scenario: Add Job
-    When  I click on the link "NEW JOB"
-    And I expect that element "h3*=New job" is visible
+    When I press "*=NEW JOB"
+    And I should see "h3*=New job"
     And I select the option with the text "Standard" for element "select#DefaultJobType"
     # TODO Modify the customer with the value in the original scenario
     And I select the option with the text "Miscellaneous customers" for element "select#CreatedBy"
     And I set "PO123" to the inputfield "div#collapseJobDetails #CustomerReference"
     And I set "Add job" to the inputfield "div#collapseJobDetails textarea[name='JobDescription']"
-    And I click on the button "button*=Add job"
+    And I press "button*=Add job"
     Then I should see the following string template "strong*=Your job is being added with ID ($ID) ... (view job)"
     And I expect that element with string template "span*=($ID)" is visible
     And I should see "Miscellaneous customers" in element "td:nth-child(2)" on the table row contains "span*=($ID)"
@@ -30,8 +28,8 @@ Feature: Jobs
     And I should see "Add job" in element "td.col-jobDescription" on the table row contains "span*=($ID)"
 
   Scenario: Update job from within the job
-    When  I click on the link "NEW JOB"
-    And I expect that element "h3*=New job" is visible
+    When I press "*=NEW JOB"
+    Then I should see "h3*=New job"
     And I select the option with the text "Standard" for element "select#DefaultJobType"
     # TODO Modify the customer with the value in the original scenario
     And I select the option with the text "Miscellaneous customers" for element "select#CreatedBy"
@@ -46,7 +44,7 @@ Feature: Jobs
     And I set "Update job details" to the inputfield "div.row-fluid textarea[name='JobDescription']"
     And I scroll to element "button*=Update job"
     And I click on the button "button*=Update job"
-    Then I expect that element "strong*=job updated successfully" becomes visible
+    Then I should see "strong*=job updated successfully"
     And I should see the value "PO200" in element "div.row-fluid #CustomerReference"
     And I should see the value "Update job details" in element "div.row-fluid textarea[name='JobDescription']"
     And I should see the value "On site" in element "div.row-fluid select#JobStatus"
@@ -57,8 +55,8 @@ Feature: Jobs
     And I should see the element "i.green-tick" in element "td:nth-child(9)" on the table row contains "span*=($ID)"
 
   Scenario: Update Job from the job dashboard
-    When  I click on the link "NEW JOB"
-    And I expect that element "h3*=New job" is visible
+    When I press "*=NEW JOB"
+    And I should see "h3*=New job"
     And I select the option with the text "Standard" for element "select#DefaultJobType"
     # TODO Modify the customer with the value in the original scenario
     And I select the option with the text "Miscellaneous customers" for element "select#CreatedBy"

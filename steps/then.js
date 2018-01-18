@@ -48,7 +48,7 @@ defineSupportCode(({ Then }) => {
     );
 
     Then(
-        /^I expect that element "([^"]*)?" becomes( not)* visible$/,
+        /^I should( not)* see "([^"]*)?"$/,
         waitForVisible
     );
 

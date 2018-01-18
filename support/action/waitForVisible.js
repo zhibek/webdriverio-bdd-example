@@ -6,7 +6,7 @@
  *
  * @todo  merge with waitfor
  */
-module.exports = (elem, falseCase) => {
+module.exports = (falseCase, elem) => {
     /**
      * Maximum number of milliseconds to wait for
      * @type {Int}

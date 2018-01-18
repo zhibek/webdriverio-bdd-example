@@ -14,7 +14,7 @@ module.exports = function(element, falseCase) {
         let key = m[2]
         if (this[key] != null) {
             let text = element.replace(m[2], this[key])
-            waitForVisible(text, falseCase)
+            waitForVisible(falseCase, text)
         }
         else{
             throw Error ('Template variable is not intialized')
