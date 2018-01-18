@@ -2,7 +2,7 @@ Feature: Jobs
 
   # Login (used in all following scenarios)
   Background: 
-    Given I open the url "/"
+    Given I am on "/"
     When I click on the button "a.ok-menu-signin-btn"
     And I wait on element "input#ok-login-email-desktop" to be visible
     And I expect that element "input#ok-login-email-desktop" is visible
