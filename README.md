@@ -17,4 +17,4 @@ yarn test
 ```
 
 ## Notes
-The `steps`/`support` are derived from the https://github.com/webdriverio/cucumber-boilerplate project. This project is Open Source (MIT license) - if this repository is publicly distrubted in the future, MIT license should be included.
+The `steps`/`support` are derived from the https://github.com/webdriverio/cucumber-boilerplate project. This project is Open Source (MIT license) - if this repository is publicly distrubted in the future, the MIT license should be included.
