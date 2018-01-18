@@ -24,7 +24,7 @@ import resizeScreenSize from '../support/action/resizeScreenSize';
 
 defineSupportCode(({ Given }) => {
     Given(
-        /^I open the (url|site) "([^"]*)?"$/,
+        /^I am on( url|site)* "([^"]*)?"$/,
         openWebsite
     );
 
