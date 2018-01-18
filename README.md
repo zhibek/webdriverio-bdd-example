@@ -1,8 +1,8 @@
-# WebdriverIO BDD Example
+# Okappy BDD Tests
 
-An example repo, showing how **WebdriverIO** can be used with **CucmberJS**, to run traditional **BDD tests** on **NodeJS**. These tests use **Chromedriver** instead of Selenium (no Selenium required) and output results in **junit format** to the build directory.
+Automated BDD tests covering Okappy functionality.
 
-The `steps` and `support` directories use basic definitions provided by https://github.com/webdriverio/cucumber-boilerplate.
+Uses **WebdriverIO** with **CucumberJS**, to run **BDD tests** on **NodeJS**. **Chromedriver** is instead of Selenium (no Selenium required) to drive a browser. Results are output in **junit format** to the build directory.
 
 
 ## Install
@@ -15,3 +15,6 @@ yarn install
 ```
 yarn test
 ```
+
+## Notes
+The `steps`/`support` are derived from the https://github.com/webdriverio/cucumber-boilerplate project. This project is Open Source (MIT license) - if this repository is publicly distrubted in the future, MIT license should be included.
